@@ -18,6 +18,34 @@ meeting,yo i need a meeting
 meeting,yo give me a meeting
 meeting,meeting dammit
 meeting,meeting damnit
+meeting,one oclock
+meeting,two oclock
+meeting,three oclock
+meeting,four oclock
+meeting,five oclock
+meeting,six oclock
+meeting,seven oclock
+meeting,eight oclock
+meeting,nine oclock
+meeting,ten oclock
+meeting,eleven oclock
+meeting,one
+meeting,two
+meeting,three
+meeting,four
+meeting,five
+meeting,six
+meeting,seven
+meeting,eight
+meeting,nine
+meeting,ten
+meeting,eleven
+meeting,thirty
+meeting,fifteen
+meeting,fourty five
+meeting,am
+meeting,pm
+meeting,noon
 sports,basketball
 sports,football
 sports,hockey
@@ -26,6 +54,10 @@ sports,softball
 sports,volleyball
 sports,curling
 sports,cavaliers
+sports,spurs
+sports,dodgers
+sports,rockies
+sports,cubs
 sports,golden state
 sports,cleveland
 sports,warriors

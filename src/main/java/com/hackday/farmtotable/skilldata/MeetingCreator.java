@@ -1,5 +1,7 @@
 package com.hackday.farmtotable.skilldata;
 
+import java.time.LocalDateTime;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +13,9 @@ public class MeetingCreator implements SkillDataCreator {
 	public SkillData create(String data) {
 		MeetingData meetingData = new MeetingData();
 		meetingData.setData(data);
-		LOGGER.info(data);
+		meetingData.setStart(LocalDateTime.now());
+		meetingData.setEnd(LocalDateTime.now().plusHours(1));
+		LOGGER.info(meetingData.toString());
 		return meetingData;
 	}
 
