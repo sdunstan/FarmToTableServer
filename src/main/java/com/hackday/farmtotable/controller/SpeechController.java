@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hackday.farmtotable.enums.SkillType;
 import com.hackday.farmtotable.intent.IntentDeterminator;
-import com.hackday.farmtotable.model.Greeting;
 import com.hackday.farmtotable.skilldata.SkillData;
 import com.hackday.farmtotable.skilldata.SkillDataCreator;
 import com.hackday.farmtotable.skilldata.SkillDataCreatorFactory;
