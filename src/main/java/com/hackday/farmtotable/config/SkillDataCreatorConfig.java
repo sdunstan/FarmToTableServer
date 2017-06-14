@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.google.gson.Gson;
 import com.hackday.farmtotable.enums.SkillType;
+import com.hackday.farmtotable.skilldata.GoogleCreator;
 import com.hackday.farmtotable.skilldata.MeetingCreator;
 import com.hackday.farmtotable.skilldata.SkillDataCreator;
 import com.hackday.farmtotable.skilldata.SportsCreator;
@@ -26,6 +27,7 @@ public class SkillDataCreatorConfig {
 
 		creators.put(SkillType.MEETING, new MeetingCreator());
 		creators.put(SkillType.SPORTS, new SportsCreator());
+		creators.put(SkillType.GOOGLE, new GoogleCreator());
 		
 		return creators;
 	}

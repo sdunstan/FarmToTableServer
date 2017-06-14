@@ -23,12 +23,11 @@ public class IntentDeterminator {
 	
 	public SkillType determineIntent(Object message) {
 		String data = (String) message;
-		LOGGER.info(data);
 		if (StringUtils.containsIgnoreCase(data, "meeting")) {
 			return SkillType.MEETING;
 		} else if(StringUtils.containsIgnoreCase(data, "sports")) {
 			return SkillType.SPORTS;
 		}
-		return SkillType.UNKNOWN;
+		return SkillType.GOOGLE;
 	}
 }

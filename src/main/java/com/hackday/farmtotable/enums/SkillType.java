@@ -3,7 +3,7 @@ package com.hackday.farmtotable.enums;
 public enum SkillType {
 	MEETING("meetings"),
 	SPORTS("sports"),
-	UNKNOWN(null);
+	GOOGLE("google");
 
 	private String typeStr;
 	

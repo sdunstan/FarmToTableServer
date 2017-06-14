@@ -34,10 +34,6 @@ public class SpeechController {
 	@PostMapping("/message")
 	public ResponseEntity<Void> post(@RequestBody String data) {
 		SkillType type = intentDeterminator.determineIntent(data);
-		if(type == SkillType.UNKNOWN) {
-			return new ResponseEntity<>(HttpStatus.OK);
-		}
-		
 		SkillDataCreator dataCreator = skillDataCreatorFactory.get(type);
 		SkillData skillData = dataCreator.create(data);
 		messagingTemplate.convertAndSend("/topic/" + type.getTypeStr(), gson.toJson(skillData));

@@ -7,6 +7,10 @@ public class MeetingData extends SkillData {
 	private LocalDateTime start;
 	private LocalDateTime end;
 	
+	public MeetingData(Object data) {
+		super(data);
+	}
+	
 	public LocalDateTime getStart() {
 		return start;
 	}
