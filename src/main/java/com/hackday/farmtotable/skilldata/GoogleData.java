@@ -15,5 +15,10 @@ public class GoogleData extends SkillData {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	@Override
+	public String toString() {
+		return "GoogleData [url=" + url + ", getData()=" + getData() + "]";
+	}
 	
 }

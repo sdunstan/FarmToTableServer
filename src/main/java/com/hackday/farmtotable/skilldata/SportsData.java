@@ -6,4 +6,9 @@ public class SportsData extends SkillData {
 		super(data);
 	}
 
+	@Override
+	public String toString() {
+		return "SportsData [getData()=" + getData() + "]";
+	}
+
 }

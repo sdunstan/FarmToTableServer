@@ -29,7 +29,7 @@ public class MeetingData extends SkillData {
 
 	@Override
 	public String toString() {
-		return "MeetingData [start=" + start + ", end=" + end + "]";
+		return "MeetingData [start=" + start + ", end=" + end + ", getData()=" + getData() + "]";
 	}
-	
+
 }
