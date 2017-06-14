@@ -12,6 +12,7 @@ import com.hackday.farmtotable.skilldata.SkillDataCreatorFactory;
 public class IntentDeterminator {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(IntentDeterminator.class);
+	
 	public SkillType determineIntent(Object message) {
 		String data = (String) message;
 		LOGGER.info(data);
