@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.hackday.farmtotable.enums.SkillType;
 import com.hackday.farmtotable.intent.IntentDeterminator;
 import com.hackday.farmtotable.skilldata.SkillData;
@@ -20,12 +21,14 @@ public class SpeechController {
 	private IntentDeterminator intentDeterminator;
 	private SimpMessagingTemplate messagingTemplate;
 	private SkillDataCreatorFactory skillDataCreatorFactory;
+	private Gson gson;
 	
 	@Autowired
-	public SpeechController(IntentDeterminator intentDeterminator, SimpMessagingTemplate messagingTemplate, SkillDataCreatorFactory skillDataCreatorFactory) {
+	public SpeechController(IntentDeterminator intentDeterminator, SimpMessagingTemplate messagingTemplate, SkillDataCreatorFactory skillDataCreatorFactory, Gson gson) {
 		this.intentDeterminator = intentDeterminator;
 		this.messagingTemplate = messagingTemplate;
 		this.skillDataCreatorFactory = skillDataCreatorFactory;
+		this.gson = gson;
 	}
 	
 	@PostMapping("/message")
@@ -37,7 +40,7 @@ public class SpeechController {
 		
 		SkillDataCreator dataCreator = skillDataCreatorFactory.get(type);
 		SkillData skillData = dataCreator.create(data);
-		messagingTemplate.convertAndSend("/topic/" + type.getTypeStr(), skillData.getData());
+		messagingTemplate.convertAndSend("/topic/" + type.getTypeStr(), gson.toJson(skillData));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
