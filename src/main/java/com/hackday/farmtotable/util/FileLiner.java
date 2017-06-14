@@ -1,3 +1,4 @@
+package com.hackday.farmtotable.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -20,7 +21,7 @@ public class FileLiner {
 		BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		String line;
 		while ((line = br.readLine()) != null) {
-			String[] data = line.split("\\|");
+			String[] data = line.split(",");
 			String[] words = data[1].split(" ");
 			for (String w : words) {
 				uniqueDataPoints.add(w);
