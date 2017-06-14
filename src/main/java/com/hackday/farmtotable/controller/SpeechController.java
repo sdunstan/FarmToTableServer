@@ -8,26 +8,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hackday.farmtotable.enums.SkillType;
 import com.hackday.farmtotable.intent.IntentDeterminator;
 import com.hackday.farmtotable.model.Greeting;
+import com.hackday.farmtotable.skilldata.SkillData;
+import com.hackday.farmtotable.skilldata.SkillDataCreator;
+import com.hackday.farmtotable.skilldata.SkillDataCreatorFactory;
 
 @RestController
 public class SpeechController {
 
 	private IntentDeterminator intentDeterminator;
 	private SimpMessagingTemplate messagingTemplate;
+	private SkillDataCreatorFactory skillDataCreatorFactory;
 	
 	@Autowired
-	public SpeechController(IntentDeterminator intentDeterminator, SimpMessagingTemplate messagingTemplate) {
+	public SpeechController(IntentDeterminator intentDeterminator, SimpMessagingTemplate messagingTemplate, SkillDataCreatorFactory skillDataCreatorFactory) {
 		this.intentDeterminator = intentDeterminator;
 		this.messagingTemplate = messagingTemplate;
+		this.skillDataCreatorFactory = skillDataCreatorFactory;
 	}
 	
 	@PostMapping("/message")
 	public ResponseEntity<Void> post(@RequestBody String data) {
-		intentDeterminator.determineIntent(data);
-		messagingTemplate.convertAndSend("/topic/greetings", new Greeting("Hello from speech controller!!!"));
+		SkillType type = intentDeterminator.determineIntent(data);
+		if(type == SkillType.UNKNOWN) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		SkillDataCreator dataCreator = skillDataCreatorFactory.get(type);
+		SkillData skillData = dataCreator.create(data);
+		messagingTemplate.convertAndSend("/topic/greetings", skillData);
 		return new ResponseEntity<>(HttpStatus.OK);
-		//return new ResponseEntity<SkillType>(intentDeterminator.determineIntent(data), HttpStatus.OK);
 	}
 }
