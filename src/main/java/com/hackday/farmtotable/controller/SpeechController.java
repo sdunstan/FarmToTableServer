@@ -38,7 +38,7 @@ public class SpeechController {
 		
 		SkillDataCreator dataCreator = skillDataCreatorFactory.get(type);
 		SkillData skillData = dataCreator.create(data);
-		messagingTemplate.convertAndSend("/topic/greetings", skillData);
+		messagingTemplate.convertAndSend("/topic/greetings", skillData.getData());
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

@@ -4,7 +4,9 @@ public class MeetingCreator implements SkillDataCreator {
 
 	@Override
 	public SkillData create(String data) {
-		return new MeetingData();
+		MeetingData meetingData = new MeetingData();
+		meetingData.setData("It worked! Woo!");
+		return meetingData;
 	}
 
 }
