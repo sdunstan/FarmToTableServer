@@ -4,3 +4,4 @@
 target/
 keywords.txt
 .idea
+.DS_Store
