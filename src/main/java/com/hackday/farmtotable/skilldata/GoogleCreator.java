@@ -11,6 +11,6 @@ public class GoogleCreator implements SkillDataCreator {
 
 	private String formatUrl(String data) {
 		String formatted = data.replace(" ", "%20");
-		return "http://lmgtfy.com/?q=" + formatted;
+		return "http://google.com/search?q=" + formatted;
 	}
 }
