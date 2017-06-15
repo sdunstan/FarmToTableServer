@@ -25,7 +25,7 @@ public class IntentDeterminator {
 		String data = (String) message;
 		if (StringUtils.containsIgnoreCase(data, "meeting")) {
 			return SkillType.MEETING;
-		} else if(StringUtils.containsIgnoreCase(data, "sports")) {
+		} else if(StringUtils.startsWith(data, "how about those")) {
 			return SkillType.SPORTS;
 		}
 		return SkillType.GOOGLE;
